@@ -1,0 +1,151 @@
+<html>
+    <head>
+        <title> Aula 03</title>
+        <script>
+            //variavel do tipo objeto
+            let pessoa = { 
+                nome:"Helton", 
+                idade: 72,
+                profissao: 'Coordenador', // com aspas simples contina sendo String
+                salario_mes: 97125.40, // tem que fazer no esquema americano sem separar milhar
+                cabeludo: false
+            }
+            console.log('Tipo' + typeof pessoa);
+            console.log('Valor', pessoa);
+            console.log('Salario', pessoa.salario_mes)
+
+            salario_mes = 97125.47; // mudando o valor
+
+            console.log('Salario Atualizado', pessoa.salario_mes); //reimprimo o novo valor
+
+            let curso = { //Criando novo objeto
+                nome_curso:"ADS",
+                coordenador: pessoa,//vinculo com o objeto pessoa
+                intituicao: "UP"
+            }
+
+            console.log(curso);//imprimindo o tipo da variavel
+
+                
+            let professores = [ //Variavel do tipo array, diferenciadando-se pelo sinal usado na criacação o tipo array é criavo por chaves "[]"
+
+                {nome:'Juliana',materia:'Java',salario: 40231.90},
+                {nome:'João Victor',materia:'Algoritmos',salario: 60321.90},
+                {nome:'Thiago Detoni',materia:'Banco de dados',salario: 60321.90},
+
+            ]
+
+            console.log("Tipo", typeof professores );
+            console.log("Valor", professores);
+            console.log("Professores 2", professores[1]);
+
+            curso.professores = professores;//Cria a variavel professores dentro do objeto curso e fala que ele é igual ao objeto professores
+            console.log("Curso Final:", curso);
+            console.log("Salario do Detoni", curso.professores[2].salario);
+
+            /*
+            function saudacao(){
+                console.log('Ola, seja bem vindo');
+            }
+            */
+           let sauda = function sauda(){ // uma viariavel recebendo uma função como valor
+            console.log('Olá, seja bem vindo');
+           }
+
+            //saudacao();//chamando a função
+            //console.log("Tipo", typeof saudacao);// vai mostrar qua a função é do tipo função rsrs
+            console.log("Tipo de sauda", typeof sauda); //Evidencia o tipo da variavel como função
+
+           function cumprimenta(nome = "Anonimo"){ // O valor anonimo fica sendo o valor padrão da variavel nome criada
+
+            console.log('Boa noite ${nome},Bem vindo a aula')
+           }
+
+           cumprimenta();
+           cumprimenta("Alex");//TRoca o valor default por Alex
+
+           //Concatenação dinamicae CAST
+           //Convertendo valores
+           let fruta = "Abacaxi";
+            console.log("Tipo",typeof fruta);
+
+            fruta = "Maça" +123;
+            console.log("Tipo", typeof fruta);
+
+           //Exemplo de concatenação com STRING
+           //Concatenando com STRING vai vira String
+          let idade =22;
+          console.log("TIpo idade", typeof idade);
+          idade =23 + "anos";
+          console.log("Novo Tipo idade", typeof idade);
+
+          //EXP de CAST Explicito
+          let preco = 45.99;
+           console.log("Tipo de preço: ", typeof preco);
+           let precoConvertido = String(preco); //Explicito pq a mudança esta aqui
+            console.log("Novo tipo de preço: ", typeof precoConvertido);
+
+            let dia ="" + 23;
+            console.log("Tipo de dia: ", typeofdia);
+             diames = Number(dia);
+            console.log("Tipo de dia/mes: ", typeofdia);
+            console.log("Valor dia mes:  ", typeofdia);
+
+            if('5' == 5){ // compara apenas o valor ou seja 5 em string e 5 em number tem o mesmo valor.
+                console.log("5 String é igual a 5 numero")//a comparação acima é essa
+            }
+
+            if ('5'=== 5 ){ //Compara o valor e tipo // nesse Exemplo fica false
+                console.log("5 string não é o mesmo tipo de dado de 5 number")// não será exibido em tela
+            }
+
+
+            if(!true){ //Operador de negação
+                console.log("É verdadeiro");
+            } else {
+                console.log("Não é verdadeiro")
+            }
+
+            //TESTANDO COMPARAÇÃO com if e else
+            const CARRO = "Punto"; //Atribui o valor punto pra variavel
+             if(CARRO ==="Punto"){ // A condição true é aqui, então executa esse if.
+                console.log("Marca: Fiat");
+            }else if(CARRO === "Corsa"){
+                console.log("Marca: GM ");
+            } else if(CARRO === "Hilux"){
+                console.log("Marca Toyota");
+            }else if(CARRO ==="Panto"){
+                console.log("Marca GTA");
+            };//TAMBEM PODE SER FEITO NO SWITCH() 
+
+
+            //laço de repetição
+            for (let i =1; i <=50; i++) {
+                console.log("Valor de i", i);
+                if(i ===15 ){
+                    continue;//ele pula para o proximo passo indo do 14 para 16
+                }
+
+                if (i === 20){
+                    break;//Braka quando o valor e tipo de i forem iguais
+                }                
+            }
+
+                let j =10;// repetindo de ré
+                
+                for (; J>= 5; j--){// não pode deixar em branco quando não tiver valor tem que constar os ";"
+                    console.log("valor de jota", j);
+
+                }      
+
+            
+
+
+
+        </script>
+    </head>
+    <body>
+        <h3>Aula #03</h3>
+        <P>Primeira aula pratica</P>
+    </body>
+</html>
