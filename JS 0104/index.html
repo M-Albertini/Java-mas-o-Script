@@ -1,0 +1,71 @@
+<html>
+<head>
+    <title>Aula 4</title>
+    <script>
+        //let jsonString = `[{"id":"1","name" : "Helton"}],[{"id":"2","name" : "Helton"}]`;
+        let jsonString = "Eu sou um Json!";
+
+        try{
+            let user =JSON.parse(jsonString); //Aqui espera que o arquivo jsonString seja um json(Tenha o padrão de formatação)
+            console.log(JSON.stringify(user));//Usado para mostrar o JSON em tela e transforma em String as informações do JSON
+            console.log(`Usuario: ${user[0].id}, ${user[1].name}`);
+        }catch(error){
+            console.error(`Erro ao converter string em obeto: ${error}`);
+        }
+
+        //Exemplo de try catch
+        try{
+            console.log("COnectando no banco de dados..");
+            //aqui o problema ocorre
+            let jsonString2 = "XPTO";
+            let carro = JSON.parse(jsonString);
+        }catch(error){
+            console.error(`Falha ao conectar ao banco de dados ${error}`);
+        }finally{
+            console.log("Fechanndo a conexão com Banco de dados...");
+        }
+
+        function verificaMaioridadeIdade(idade){//Cria a função para validar maioridade
+            if(!idade){
+                throw new Error ("O parametro idade é obrigatorio"); //Cria a mensagem de erro para exibir no catch e o codigo puder ser exibido
+            }
+            
+            if(idade < 0 ){
+                throw new Error ("A idade não pode ser negativa");
+            }
+            if (idade >= 18){
+                return "É menor de idade";
+            }else {
+                return "É meno de idade";
+            }
+        }
+        try{
+            console.log("19: ". verificaMaioridadeIdade(19));
+            console.log("15: ". verificaMaioridadeIdade(15));
+            //console.log("Null: ". verificaMaioridadeIdade());///Exemplo de erro para exibir o erro
+            console.log("Null: ". verificaMaioridadeIdade(-20));///Exemplo de erro para exibir o erro
+        }catch(error){
+            console.error("Deu ruim");
+        }
+
+        console.log("Chegou até aqui");//Valida se o codigo não parou e rodou até a ultima linha
+
+        function corDaFruta(frutaRecebida){
+            switch(frutaRecebida.toLowerCase()){//converte toda a string recebida em letras minusculas
+                case "banana": //O codigo exucuta tudo até achar um break, como não acha ele continua
+                case"maracuja":
+                console.log("Amarela");
+                break;
+                case "maça": console.log("Vermelha");
+                break;
+                default: console.log("Fruta não encontrada");
+            }
+        }
+
+        corDaFruta("Banana")//Manda em letra maiuscula
+    </script>
+</head>
+<body>
+    <h1>Aula 04 - Exceções</h1>
+</body>
+</html>
