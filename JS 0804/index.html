@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title> Aula 05 - Funções</title>
+        <script>
+            //Função declarada
+
+            function cumprimentaHelton(nome= "Não informado", idade= 0, cidade = "Londrina"){//Tem sempre que ter um valor default, não sabemos como será chamado depois
+                console.log(`Olá,${nome} da cidade ${cidade}. Seja bem vindo`);
+            }
+
+            
+            //cumprimentaHelton("Juliaa", null, "Cambé"); 
+            cumprimentaHelton();
+
+            let recuperaMarca = function(modelo){//Função anonima. Sempre que não for const, e eu mudar o valor da variavel esse novo valor passa por validação da função
+
+                if (modelo === "Gol"){
+                    return "Volkswagen"
+                }else if(modelo=== "Palio"){
+                    return "Fiat"
+                }else{
+                    return "Não informado";
+                }
+            }
+            let retorno = recuperaMarca("Gol")
+            console.log("Retorno: ", retorno)
+
+            //Arrow function
+            let superheroi = ()=> console.log("SpiderMan");// Não é aconselhado para usar com if, mas funciona com tbm.
+            superHeroi();
+
+            //passando parametro na arrow functiona
+            let superHeroiUP = (nome) => console.log("Super",nome);//A função console.log que faz o retorno
+            superHeroiUP("Helton");
+
+            //Arrow com retorno
+            let superPoder = () => "Deixar todos carecas";//Função anonima que deixa
+            let retornoSP = superPoder();//Atribui na variavel retornoSP o valor da função arrow
+            console.log("O super poder é:", retornoSP);
+
+
+            let completa = (nome, poder)=> `Super Herói: Super-${nome} com o super poder ${poder}`
+            console.log(completa("Juliana"," Dar aula"));
+
+            let simplesSimples = aluno => `Bem vindo ${aluno}`
+            console.log(simplesSimples("Alex"));
+
+
+            //Rest parametros
+            function imprimeCarnes(...carnes){
+
+                function comoImprimeAsCarnes(Acumulado, atual){
+
+                    return `${Acumulado} - ${atual}`;//callback 
+                }
+                return carnes.reduce(comoImprimeAsCarnes); //Função reduce, chama a de cima
+            }
+
+            console.log(imprimeCarnes(`Fraldinha`,`Ancho`,`Costela`,`Picanha`,`Brisket`));//Passando um array de strings
+
+            
+            let imprimeBebeida= (...bebidas) => bebidas.reduce((anterior, atual) => anterior + "|" + atual,"");
+            console.log(imprimeBebeida("Coca-cola","Coca zero", "Sprite","Cerveja"));
+
+        </script>
+    </head>
+</html>
