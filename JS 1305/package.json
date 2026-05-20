@@ -1,0 +1,15 @@
+{
+  "name": "primeiraaulanode",
+  "version": "1.0.1",
+  "description": "Esse é o primeiro projeto de Node.",
+  "license": "ISC",
+  "author": "Matheus Albertini",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node app.js",
+    "prod": "node index.js"
+    
+  }
+}
