@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title>   Aula 06 - Clousures</title>
+        <script>
+            function criarContador(){
+
+                let contagem = 0;//Clousure
+                //
+
+                return function(){  //Essa função faz a "Contagem"
+                    contagem +=1;
+                    console.log(`Valor atual: ${contagem}`)
+                }
+            }
+
+            const meuContador = criarContador(); //Atribui na variavel meuContado o valor retornado da função mãe criarContado
+
+            meuContador();
+            meuContador();
+            meuContador();//Soma os valores
+
+            const meuContador2 = criarContador();
+            meuContador2();
+            meuContador();
+
+
+
+
+            function processaVetor(vet, operacao){
+                for(let i = 0; i < vet.length; i ++){//Coloca a varivel como LET para que ela seja local
+                    //o for é para percorrer o array
+                    operacao(vet[i]);
+                }
+            }
+
+            processaVetor(["Laranja", "Abacaxi",123,45.9],console.log);//Passa os valores para o array, e imprime
+
+            function multiplicar(multiplicador){
+                return function(value){
+                    return value * multiplicador
+                }
+            }
+
+
+            const dobre = multiplicar(2);
+            const valorDorbrado = multiplicador(100);
+            console.log(`Valor dobrado ${valorDorbrado}`);
+
+            console.log(`Outro valor dobrado: ${dobra(500)}`);
+            const triplica = multiplicar(3);//Todo valor que for ser atribuido nessa variavel é multiplicado por 3
+            console.log(`Valor triplicado: ${triplica(100)}`);//Coloca o valor 
+
+            function criarCalculadoraDeDesconto(porcentagem){
+
+                return function(ValorDoProduto){
+                    const desconto = valorDoProduto * (porcentagem / 100);
+                    return valorDoProduto - desconto;
+                }
+
+            }
+
+            const descontoFuncionario = criarCalculadoraDeDesconto(30);
+            const descontoClienteVip = criarCalculadoraDeDesconto(15);
+            const descontoGerente = criarCalculadoraDeDesconto(60);
+
+            let valorTenis = 200;
+            console.log(`Tênis (valor original) ${valorTenis} `);
+            console.log(`Tênis (Funcionario) ${descontoFuncionario(valorTenis)}`);
+            console.log(`Valor (VIP) ${descontoClienteVip(valorTenis)}`);
+            console.log(`Valor (Gerente) ${descontoGerente(valorTenis)}`);
+
+            console.log(`=================`);
+
+
+            function executaApenasUmaVez(funcaoCallBack){
+                let jaFoiExecutado = false;
+
+                return function(){
+                    if(!jaFoiExecutado){
+                        jaFoiExecutado = true;
+                        funcaoCallBack();
+                    }else{
+                        console.log("Ação bloqueada: Só pode ser executada uma vez")
+                    }
+                }
+            }
+
+            function cobrarCartao(){
+                console.log("R$150 reais debitados do cartão de credito");
+            }
+
+            const botaoPagar = executaApenasUmaVez(cobrarCartao);
+
+            botaoPagar();
+            botaoPagar();//Teste para validar a função executa uma vez
+            botaoPagar();
+            botaoPagar();
+
+
+        </script>
+        <body>
+            
+            <h2>Aula 06</h2>
+        </body>
+    </head>
+</html>
