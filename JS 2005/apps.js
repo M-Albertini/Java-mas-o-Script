@@ -70,6 +70,15 @@ app.post(`/cadastraproduto`,(req,res )=>{
     }
 });
 
+app.put("/editaonibus", (req,res)=>{
+    const {numero, linha, lugares} = req.body;
+    if(numero && linha && lugares){
+        res.status(200).send(`<h1> Busao alterado!</h1><p>Numero: ${numero}| Linha: ${linha}| Lugares: ${lugares}</p>`);
+    }else{
+        res.status(400).send("<h1> alguma coisa</h1>");
+    }
+})
+
 
 
 //ROTAS TEM QUE ESTAR ACIMA DO LISTEN
