@@ -1,0 +1,18 @@
+<html>
+    <head> <title>
+        Lista de motos
+    </title></head>
+    <body>
+                <h4>Lista de motos cadastradas no sistema"</h4>
+        <ul>
+            <%LISTA_DE_MOTOS.forEach(function(moto){%><!--Usado função anonima, mas é melhor sempre usar arrow Function-->
+                <li>
+                Marca: <%= moto.marca %> - Modelo:<%= moto.modelo%>
+                </li>
+                <%})%>
+
+        </ul>
+    </body>
+
+
+</html>

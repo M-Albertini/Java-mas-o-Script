@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Lista de carros</title>
+    </head>
+
+    <body>
+        <div class="container"> 
+            <h3>Lista de carros cadastrados no sistema!</h3>
+            <ul>
+
+                <% for(let i = 0 ; i<listaCarros.length; i++){ %>
+
+                    <li>Marca: <%= listaCarros[i].marca%> - Modelo: <%= listaCarros[i].modelo%></li>
+
+                <%}%>
+            </ul>
+        </div>
+    </body>
+</html>
